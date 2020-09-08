@@ -8,7 +8,7 @@ from ui_util.config import Config
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-from PyQt5.QtPrintSupport import QPrintDialog, QPrinter
+from PyQt5.QtPrintSupport import QPrintDialog, QPrinter # givenone :: use pyqt5 for gui.
 
 from collections import OrderedDict
 
@@ -24,7 +24,8 @@ import torch
 import time
 import math
 import numpy as np
-from scipy.misc import imresize
+#from scipy.misc import imresize
+from skimage.transform import resize
 from ui_util import cal_orient_stroke
 
 color_list = [QColor(0, 0, 0), QColor(255, 255, 255), QColor(76, 153, 0), QColor(204, 204, 0), QColor(51, 51, 255), QColor(204, 0, 204), QColor(0, 255, 255), QColor(51, 255, 255), QColor(102, 51, 0), QColor(255, 0, 0), QColor(102, 204, 0), QColor(255, 255, 0), QColor(0, 0, 153), QColor(0, 0, 204), QColor(255, 51, 153), QColor(0, 204, 204), QColor(0, 51, 0), QColor(255, 153, 51), QColor(0, 204, 0)]
@@ -519,8 +520,8 @@ class Ex(QWidget, Ui_Form):
 
 if __name__ == '__main__':
     opt = DemoOptions().parse()
-    model = Pix2PixModel(opt)
+    model = Pix2PixModel(opt) # givenone :: model - pix2pix ?
     model.eval()
     app = QApplication(sys.argv)
-    ex = Ex(model, opt)
-    sys.exit(app.exec_())
+    ex = Ex(model, opt) # givenone :: execution
+    sys.exit(app.exec_()) ## givenone :: app.exec()

@@ -38,7 +38,7 @@ img_path = data['path']
 print('process image... %s' % img_path)
 
 # remove background
-if opt.remove_background:
+if opt.remove_background: # givenone :: TAG already exists.. in input data.
     generated = generated * data['label_tag'].float() + data['image_tag'] *(1 - data['label_tag'].float())
 fake_image = tensor2im(generated[0])
 if opt.add_feat_zeros or opt.add_zeros:
